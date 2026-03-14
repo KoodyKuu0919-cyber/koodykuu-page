@@ -2,42 +2,538 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KoodyKuu Note Collection | AI x Life</title>
-    <!-- Google Fonts -->
+    <title>ENSO — 円相</title>
+    <meta name="description" content="ENSOは禅の美学と現代のファッションが交差するブランド。一筆の円が示す完全性と空虚の哲学を纏う。" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <canvas id="canvas-bg"></canvas>
 
-    <header>
+    <!-- Grain Overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-logo">
+        <svg class="nav-enso" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="enso-stroke" d="M30 8 C44 8, 54 18, 54 30 C54 44, 44 54, 30 54 C16 54, 6 44, 6 30 C6 18, 14 10, 26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="nav-brand">ENSO</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#story">Story</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <span class="nav-lang">JP / EN</span>
+        <button class="nav-menu-btn" id="menuBtn" aria-label="メニュー">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#story" class="mobile-link">Story</a></li>
+        <li><a href="#collection" class="mobile-link">Collection</a></li>
+        <li><a href="#philosophy" class="mobile-link">Philosophy</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- ================================================
+         HERO
+    ================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <canvas id="inkCanvas"></canvas>
+      </div>
+
+      <div class="hero-enso-wrap">
+        <svg class="hero-enso" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <path id="ensoDraw"
+            d="M200 50 C290 50, 360 120, 360 200 C360 290, 290 360, 200 360 C110 360, 40 290, 40 200 C40 110, 110 50, 190 50"
+            fill="none"
+            stroke="rgba(245,240,232,0.15)"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg class="hero-enso hero-enso--animated" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <path id="ensoAnimated"
+            d="M200 50 C290 50, 360 120, 360 200 C360 290, 290 360, 200 360 C110 360, 40 290, 40 200 C40 110, 110 50, 190 50"
+            fill="none"
+            stroke="rgba(245,240,232,0.9)"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
       <div class="hero-content">
-        <span class="hero-tagline">Welcome to the Future of Work</span>
-        <h1 class="hero-title">
-          <span class="gradient-text">AIと創る、</span><br>
-          忙しさに追われない生き方
+        <div class="hero-label reveal">
+          <span>2024 — Collection</span>
+        </div>
+        <h1 class="hero-title reveal reveal--delay-1">
+          <span class="hero-title-jp">円</span>
+          <span class="hero-title-jp">相</span>
         </h1>
-        <p class="hero-subtitle">
-          初心者から上級者まで、AIを武器にして人生の主導権を取り戻すためのナレッジベース
+        <p class="hero-subtitle reveal reveal--delay-2">
+          一筆の円に宿る、完全と空虚の美
+        </p>
+        <p class="hero-subtitle-en reveal reveal--delay-3">
+          The beauty of completeness and emptiness<br>in a single brushstroke
+        </p>
+        <a href="#collection" class="hero-cta reveal reveal--delay-4">
+          <span>Explore Collection</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+
+      <div class="hero-meta">
+        <span>ENSO — 円相 Studio</span>
+        <span>Crafted in Japan</span>
+      </div>
+    </section>
+
+    <!-- ================================================
+         BRAND STORY
+    ================================================ -->
+    <section class="story" id="story">
+      <div class="story-inner">
+        <div class="story-left">
+          <div class="story-image-wrap">
+            <div class="story-image story-image--main">
+              <div class="story-img-placeholder story-img-placeholder--1"></div>
+              <div class="story-img-overlay"></div>
+            </div>
+            <div class="story-image story-image--accent">
+              <div class="story-img-placeholder story-img-placeholder--2"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-right">
+          <div class="section-label reveal-up">Story</div>
+          <h2 class="story-heading reveal-up">
+            手の痕跡から<br>
+            <em>生まれる服</em>
+          </h2>
+          <p class="story-body reveal-up">
+            ENSOは禅の思想に宿る「円相」から名を得たブランドです。
+            禅画の一筆書きの円——完全でありながら、意図的に閉じられない——
+            その矛盾の中にある美しさを衣服という形で表現します。
+          </p>
+          <p class="story-body reveal-up">
+            デザイナーはパタンナーとしてのキャリアを経て独立。
+            選び抜かれた国内外の素材と、職人の手による縫製技術が
+            唯一無二の世界観を生み出します。
+          </p>
+          <div class="story-stats reveal-up">
+            <div class="stat">
+              <span class="stat-num">2014</span>
+              <span class="stat-label">設立</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-num">Hand</span>
+              <span class="stat-label">Made in Japan</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-num">∞</span>
+              <span class="stat-label">Limitless</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         COLLECTION INTRO
+    ================================================ -->
+    <section class="collection-intro">
+      <div class="marquee-wrap" aria-hidden="true">
+        <div class="marquee-track">
+          <span>ENSO &nbsp;—&nbsp; 円相 &nbsp;—&nbsp; 2024 SS &nbsp;—&nbsp; MADE IN JAPAN &nbsp;—&nbsp; 手仕事 &nbsp;—&nbsp; ENSO &nbsp;—&nbsp; 円相 &nbsp;—&nbsp; 2024 SS &nbsp;—&nbsp; MADE IN JAPAN &nbsp;—&nbsp; 手仕事 &nbsp;—&nbsp; ENSO &nbsp;—&nbsp; 円相 &nbsp;—&nbsp; 2024 SS &nbsp;—&nbsp; MADE IN JAPAN &nbsp;—&nbsp; 手仕事 &nbsp;—&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         COLLECTION GRID
+    ================================================ -->
+    <section class="collection" id="collection">
+      <div class="collection-header">
+        <div class="section-label reveal-up">Collection</div>
+        <h2 class="collection-title reveal-up">2024 Spring / Summer</h2>
+        <p class="collection-desc reveal-up">
+          空と地の間に立つ人間を想像しながら、<br>
+          素材が語る物語に耳を傾けた一年。
         </p>
       </div>
-    </header>
 
-    <main class="container">
-      <nav id="category-nav" class="category-nav">
-        <!-- Buttons injected by JS -->
-      </nav>
+      <div class="collection-grid">
+        <!-- Item 1 -->
+        <article class="product-card product-card--large reveal-up" data-index="0">
+          <div class="product-img-wrap">
+            <div class="product-img-bg product-img-bg--1"></div>
+            <div class="product-img-overlay"></div>
+            <div class="product-img-tag">New</div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Outerwear</div>
+            <h3 class="product-name">Shibori Dyed Jacket</h3>
+            <p class="product-desc-text">藍染の濃淡が描く、宇宙のような模様</p>
+            <div class="product-footer">
+              <span class="product-price">¥68,000</span>
+              <a href="#" class="product-link">View →</a>
+            </div>
+          </div>
+        </article>
 
-      <section id="articles-grid" class="articles-grid">
-        <!-- Cards injected by JS -->
-      </section>
-    </main>
+        <!-- Item 2 -->
+        <article class="product-card reveal-up" data-index="1">
+          <div class="product-img-wrap">
+            <div class="product-img-bg product-img-bg--2"></div>
+            <div class="product-img-overlay"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Tops</div>
+            <h3 class="product-name">Washi Paper Shirt</h3>
+            <p class="product-desc-text">和紙の繊維を織り込んだ、軽さの中の強さ</p>
+            <div class="product-footer">
+              <span class="product-price">¥32,000</span>
+              <a href="#" class="product-link">View →</a>
+            </div>
+          </div>
+        </article>
 
-    <script type="module" src="/main.js"></script>
+        <!-- Item 3 -->
+        <article class="product-card reveal-up" data-index="2">
+          <div class="product-img-wrap">
+            <div class="product-img-bg product-img-bg--3"></div>
+            <div class="product-img-overlay"></div>
+            <div class="product-img-tag">Limited</div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Bottoms</div>
+            <h3 class="product-name">Nuno-zome Trousers</h3>
+            <p class="product-desc-text">草木染めの揺らぐ色が、光と対話する</p>
+            <div class="product-footer">
+              <span class="product-price">¥45,000</span>
+              <a href="#" class="product-link">View →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="product-card product-card--large reveal-up" data-index="3">
+          <div class="product-img-wrap">
+            <div class="product-img-bg product-img-bg--4"></div>
+            <div class="product-img-overlay"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">One-piece</div>
+            <h3 class="product-name">Ma — Space Dress</h3>
+            <p class="product-desc-text">「間」の概念を形にした、余白の服</p>
+            <div class="product-footer">
+              <span class="product-price">¥58,000</span>
+              <a href="#" class="product-link">View →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="product-card reveal-up" data-index="4">
+          <div class="product-img-wrap">
+            <div class="product-img-bg product-img-bg--5"></div>
+            <div class="product-img-overlay"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Accessories</div>
+            <h3 class="product-name">Boro Tote</h3>
+            <p class="product-desc-text">刺し子技法で補修を重ねたような、時間の堆積</p>
+            <div class="product-footer">
+              <span class="product-price">¥18,000</span>
+              <a href="#" class="product-link">View →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="product-card reveal-up" data-index="5">
+          <div class="product-img-wrap">
+            <div class="product-img-bg product-img-bg--6"></div>
+            <div class="product-img-overlay"></div>
+            <div class="product-img-tag">New</div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Outerwear</div>
+            <h3 class="product-name">Boro Boro Coat</h3>
+            <p class="product-desc-text">解れと補修が美しい、時間が作った服</p>
+            <div class="product-footer">
+              <span class="product-price">¥98,000</span>
+              <a href="#" class="product-link">View →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="collection-footer reveal-up">
+        <a href="#" class="btn-outline">View All Items</a>
+      </div>
+    </section>
+
+    <!-- ================================================
+         EDITORIAL / LOOKBOOK STRIP
+    ================================================ -->
+    <section class="editorial">
+      <div class="editorial-inner">
+        <div class="editorial-text-side">
+          <div class="section-label reveal-up">Lookbook</div>
+          <h2 class="editorial-heading reveal-up">
+            身に纏うことで<br>
+            哲学と出会う
+          </h2>
+          <p class="editorial-body reveal-up">
+            衣服は単なる布ではなく、着る者の精神の延長線上にある。
+            ENSOのガーメントは、動くたびに新しい表情を見せ、
+            時間と共に変化し、所有者の物語を刻んでいく。
+          </p>
+          <a href="#" class="btn-text reveal-up">
+            Lookbook 2024 を見る
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="editorial-image-side">
+          <div class="editorial-img-stack">
+            <div class="editorial-img editorial-img--back"></div>
+            <div class="editorial-img editorial-img--front">
+              <div class="editorial-img-caption">
+                <span>S/S 2024</span>
+                <span>Photograph: Studio ENSO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         PHILOSOPHY
+    ================================================ -->
+    <section class="philosophy" id="philosophy">
+      <div class="philosophy-bg-enso" aria-hidden="true">
+        <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M400 80 C580 80, 720 220, 720 400 C720 580, 580 720, 400 720 C220 720, 80 580, 80 400 C80 220, 210 90, 380 80"
+            stroke="rgba(245,240,232,0.04)"
+            stroke-width="2"
+            stroke-linecap="round"
+            fill="none"
+          />
+        </svg>
+      </div>
+
+      <div class="philosophy-inner">
+        <div class="section-label reveal-up" style="text-align:center;">Philosophy</div>
+
+        <blockquote class="philosophy-quote reveal-up">
+          <p class="philosophy-quote-jp">
+            「円相は<br>
+            完全でも不完全でもない——<br>
+            ただ、在るだけだ」
+          </p>
+          <p class="philosophy-quote-en">
+            "The enso is neither complete<br>
+            nor incomplete — it simply is."
+          </p>
+          <footer class="philosophy-attribution">— 禅の思想より / Zen Philosophy</footer>
+        </blockquote>
+
+        <div class="philosophy-pillars reveal-up">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1"/>
+                <path d="M24 12 C30 12, 36 18, 36 24 C36 30, 30 36, 24 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Wabi-Sabi</h3>
+            <p class="pillar-body">不完全さ、無常、未完成の中に宿る美しさを受け入れる。傷や経年変化こそが、服の本当の価値となる。</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 38 L24 10 L38 38" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 30 L34 30" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Shokunin</h3>
+            <p class="pillar-body">職人——熟練した手、献身的な精神、完璧さへの飽くなき追求。私たちは機械ではなく、人の手が作るものを信じる。</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="8" width="24" height="32" rx="1" stroke="currentColor" stroke-width="1"/>
+                <path d="M18 20 h12 M18 26 h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Ma — 間</h3>
+            <p class="pillar-body">「間」——空間と時間の余白の中にある意味。余計なものを削ぎ落とした先に現れる、純粋な形と機能の調和。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         PROCESS / HOW WE MAKE
+    ================================================ -->
+    <section class="process">
+      <div class="process-inner">
+        <div class="section-label reveal-up">Process</div>
+        <h2 class="process-title reveal-up">From Hands to Wardrobe</h2>
+
+        <div class="process-steps">
+          <div class="process-step reveal-up" data-step="01">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>素材の選定</h3>
+              <p>国内外の産地を直接訪れ、手で触れ、職人と対話しながら素材を選ぶ。</p>
+            </div>
+            <div class="step-img step-img--1"></div>
+          </div>
+
+          <div class="process-step reveal-up" data-step="02">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>パターン設計</h3>
+              <p>デザイナー自身がパターンメイキングを行い、着る人の動きに寄り添う形を探る。</p>
+            </div>
+            <div class="step-img step-img--2"></div>
+          </div>
+
+          <div class="process-step reveal-up" data-step="03">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>手作業による仕上げ</h3>
+              <p>縫製から仕上げまで、職人の手が一点一点に向き合い、細部に魂を込める。</p>
+            </div>
+            <div class="step-img step-img--3"></div>
+          </div>
+
+          <div class="process-step reveal-up" data-step="04">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <h3>あなたの元へ</h3>
+              <p>服は旅に出る。着られることで初めて完成する、対話としての衣服。</p>
+            </div>
+            <div class="step-img step-img--4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         NEWSLETTER
+    ================================================ -->
+    <section class="newsletter">
+      <div class="newsletter-inner reveal-up">
+        <div class="newsletter-enso" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none">
+            <path d="M100 20 C148 20, 180 52, 180 100 C180 148, 148 180, 100 180 C52 180, 20 148, 20 100 C20 52, 50 22, 94 20" stroke="rgba(245,240,232,0.2)" stroke-width="1" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <p class="newsletter-label">Stay in the circle</p>
+        <h2 class="newsletter-title">ENSOの世界を<br>もっと深く</h2>
+        <p class="newsletter-body">新コレクションの発売情報、制作の裏側、哲学的なエッセイを<br>メールで直接お届けします。</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+        <p class="newsletter-note">スパムはしません。いつでも解除できます。</p>
+      </div>
+    </section>
+
+    <!-- ================================================
+         FOOTER
+    ================================================ -->
+    <footer class="footer" id="contact">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <svg class="footer-enso" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 10 C60 10, 72 24, 72 40 C72 58, 58 72, 40 72 C22 72, 8 58, 8 40 C8 24, 20 12, 36 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="footer-brand-name">ENSO</span>
+          <p class="footer-brand-desc">
+            円相 — 一筆の円が宿す<br>完全と空虚の哲学
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Outerwear</a></li>
+              <li><a href="#">Tops</a></li>
+              <li><a href="#">Bottoms</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Brand</h4>
+            <ul>
+              <li><a href="#">Story</a></li>
+              <li><a href="#">Philosophy</a></li>
+              <li><a href="#">Process</a></li>
+              <li><a href="#">Lookbook</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Sizing Guide</a></li>
+              <li><a href="#">Care Instructions</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 ENSO — 円相. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Twitter">X / Twitter</a>
+          <a href="#" aria-label="SUZURI">SUZURI</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
